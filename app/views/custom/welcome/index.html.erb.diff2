@@ -1,0 +1,13 @@
+0a1,4
+> <% content_for :canonical do %>
+>   <%= render "shared/canonical", href: root_url %>
+> <% end %>
+> 
+24d27
+<         <%= image_tag("icon_home_debate.png", size: "168x168", alt: "", title: t("welcome.debates.title")) %>
+30d32
+<         <%= image_tag("icon_home_proposal.png", size: "168x168", alt: "", title: t("welcome.proposal.title"))  %>
+36d37
+<         <%= image_tag("icon_home_decide.png", size: "168x168", alt: "", title: t("welcome.decide.title")) %>
+41d41
+<         <%= image_tag("icon_home_do.png", size: "168x168", alt: "", title: t("welcome.do.title")) %>

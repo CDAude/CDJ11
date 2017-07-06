@@ -1,0 +1,14 @@
+5c5
+<   def initialize(resource_model, scope = nil)
+---
+>   def initialize(resource_model, scope=nil)
+12c12
+<     last_week.tag_counts.
+---
+>     tag_counts.
+37,38c37
+< 
+< end
+\ Pas de fin de ligne à la fin du fichier
+---
+> end

@@ -1,0 +1,18 @@
+<% if user_signed_in? && (current_user.administrator? || current_user.poll_officer?) %>
+  <div class="proposal-form row">
+
+    <div class="small-12 medium-9 column">
+      <%= render "shared/back_link" %>
+
+      <h1><%= t("proposals.new.start_new") %></h1>
+      <%= render "proposals/form", form_url: proposals_url %>
+    </div>
+
+    <div class="small-12 medium-3 column">
+      <span class="icon-proposals float-right"></span>
+      <h3>
+        <%= t("proposals.new.recommendation_title", chart_link: link_to(t("proposals.new.recommendation_chart"), t("proposals.new.recommendation_url"), target: "blank")).html_safe %>
+      </h3>
+    </div>
+  </div>
+<% end %>

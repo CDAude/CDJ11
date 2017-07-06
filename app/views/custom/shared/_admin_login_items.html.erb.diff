@@ -1,0 +1,45 @@
+1a2
+> 
+4c5,8
+<       <%= link_to t("layouts.header.administration"), admin_root_path %>
+---
+>       <%= link_to admin_root_path do %>
+>         <%= image_tag(image_path_for('icon_administration.png'), class: "show-for-small-only") %>
+>         <%= t("layouts.header.administration") %>
+>       <% end %>
+10c14,17
+<       <%= link_to t("layouts.header.moderation"), moderation_root_path %>
+---
+>       <%= link_to moderation_root_path do %>
+>         <%= image_tag(image_path_for('icon_moderation.png'), class: "show-for-small-only") %>
+>         <%= t("layouts.header.moderation") %>
+>       <% end %>
+14,15c21
+<   <% if (feature?(:spending_proposals) || feature?(:budgets)) &&
+<         (current_user.administrator? || current_user.valuator?) %>
+---
+>   <% if feature?(:spending_proposals) && (current_user.administrator? || current_user.valuator?) %>
+17c23,26
+<       <%= link_to t("layouts.header.valuation"), valuation_root_path %>
+---
+>       <%= link_to valuation_root_path do %>
+>         <%= image_tag(image_path_for('icon_valuation.png'), class: "show-for-small-only") %>
+>         <%= t("layouts.header.valuation") %>
+>       <% end %>
+23c32,35
+<       <%= link_to t("layouts.header.management"), management_sign_in_path %>
+---
+>       <%= link_to management_sign_in_path do %>
+>         <%= image_tag(image_path_for('icon_management.png'), class: "show-for-small-only") %>
+>         <%= t("layouts.header.management") %>
+>       <% end %>
+29c41,45
+<       <%= link_to t("layouts.header.officing"), officing_root_path %>
+---
+>       <%= link_to t("layouts.header.officing"), officing_root_path, class: "hide-for-small-only" %>
+>       <%= link_to officing_root_path, class: "show-for-small-only" do %>
+>         <%= image_tag(image_path_for('icon_officing.png')) %>
+>         <%= t("layouts.header.officing_light") %>
+>       <% end %>
+31a48
+>   

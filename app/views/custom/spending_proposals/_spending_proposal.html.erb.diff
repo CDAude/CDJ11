@@ -1,0 +1,68 @@
+5c5
+<       <div class="small-12 medium-9 column">
+---
+>       <div class="column">
+10c10
+<             <span class="icon-budget"></span>
+---
+>             
+11a12
+>             
+13,16c14,16
+< 
+<               <%= l spending_proposal.created_at.to_date %>
+< 
+<               <% if spending_proposal.author.hidden? || spending_proposal.author.erased? %>
+---
+>               Le <%= l spending_proposal.created_at.to_date %>
+>               
+>               <% if spending_proposal.author.display_official_position_badge? %>
+18,19c18,19
+<                 <span class="author">
+<                   <%= t("spending_proposals.show.author_deleted") %>
+---
+>                 <span class="label round level-<%= spending_proposal.author.official_level %>">
+>                   <%= spending_proposal.author.official_position %>
+21,31d20
+<               <% else %>
+<                 <span class="bullet">&nbsp;&bull;&nbsp;</span>
+<                 <span class="author">
+<                   <%= spending_proposal.author.name %>
+<                 </span>
+<                 <% if spending_proposal.author.display_official_position_badge? %>
+<                   <span class="bullet">&nbsp;&bull;&nbsp;</span>
+<                   <span class="label round level-<%= spending_proposal.author.official_level %>">
+<                     <%= spending_proposal.author.official_position %>
+<                   </span>
+<                 <% end %>
+40,42d28
+< 
+<               <span class="bullet">&nbsp;&bull;&nbsp;</span>
+<               <%= geozone_name(spending_proposal) %>
+43a30
+>             
+45c32
+<               <p><%= link_to spending_proposal.description, namespaced_spending_proposal_path(spending_proposal) %></p>
+---
+>               <%= spending_proposal.description %>
+47a35,48
+>             
+>             <% if spending_proposal.external_url.present? %>
+>               <div class="investment-project-image">
+>                 <%= link_to namespaced_spending_proposal_path(spending_proposal) do %>
+>                   <%= image_tag(spending_proposal.external_url, alt: 'URL image invalide !') %>
+>                 <% end %>
+>               </div>
+>             <% end %>
+>             
+>             <div class="tags">
+>               <% if spending_proposal.association_name.present? %>
+>                 <%= link_to spending_proposal.association_name, spending_proposals_path(association_name: spending_proposal.association_name), class: 'actu' %>
+>               <% end %>
+>             </div>
+50,54d50
+<       </div>
+< 
+<       <div id="<%= dom_id(spending_proposal) %>_votes" class="small-12 medium-3 column supports-container">
+<           <%= render 'votes',
+<                     { spending_proposal: spending_proposal, vote_url: vote_spending_proposal_path(spending_proposal, value: 'yes') } %>

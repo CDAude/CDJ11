@@ -1,0 +1,27 @@
+<div class="small-12 medium-9 column">
+  <ul>
+    <li>
+      <%= layout_menu_link_to t("layouts.header.debates"), debates_path, controller_name == 'debates', accesskey: "1" %>
+    </li>
+    
+    <li>
+      <%= layout_menu_link_to t("layouts.header.proposals"), proposals_path, controller_name == 'proposals', accesskey: "2" %>
+    </li>
+    
+    <% if feature?(:polls) %>
+      <li>
+        <%= layout_menu_link_to t("layouts.header.poll_questions"), polls_path, controller_name == "polls", accesskey: "3" %>
+      </li>
+    <% end %>
+    
+    <% if feature?(:spending_proposals) %>
+      <li>
+        <%= layout_menu_link_to t("layouts.header.spending_proposals"), spending_proposals_path, controller_name == 'spending_proposals', accesskey: "5" %>
+      </li>
+    <% end %>
+    
+    <li>
+      <%= link_to t("layouts.header.more_info"), more_info_path, accesskey: "5", class: ("active" if current_page?(more_info_path)) %>
+    </li>
+  </ul>
+</div>

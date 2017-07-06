@@ -1,0 +1,22 @@
+18,21c18
+<     <%= favicon_link_tag image_path_for("apple-touch-icon-200.png"),
+<                      rel: "icon apple-touch-icon",
+<                      sizes: "200x200",
+<                      type: "image/png" %>
+---
+>     <%= favicon_link_tag "/assets/apple-touch-icon-200.png", rel: "icon apple-touch-icon", sizes: "200x200", type: "image/png" %>
+23d19
+< 
+25a22
+> 
+26a24
+>     <%= render "shared/analyticstracking" %>
+28,30c26,27
+< 
+<     <h1 class="show-for-sr"><%= setting['org_name'] %></h1>
+< 
+---
+>     <h1 class="sr-only"><%= setting['org_name'] %></h1>
+>     
+58a56
+>     

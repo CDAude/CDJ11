@@ -1,0 +1,23 @@
+1,4d0
+< <% content_for :canonical do %>
+<   <%= render "shared/canonical", href: root_url %>
+< <% end %>
+< 
+11c7
+<         <%= link_to t("layouts.header.more_info"), more_info_path %>
+---
+> 	<b><%= link_to t("devise_views.menu.login_items.signup"), new_user_registration_path %></b>
+18,19c14,15
+<     <div class="hide-for-small-only small-12 medium-5 column text-center">
+<       <%= image_tag(image_path_for("icon_home.png"), size: "330x240", alt:"") %>
+---
+>     <div class="hide-for-small-only small-12 medium-6 column text-center">
+>       <iframe class="medium-12" height="300" src="https://www.youtube.com/embed/9BpWAXTi_H8?rel=0" frameborder="0" allowfullscreen></iframe>
+27a24
+>         <%= image_tag("icon_home_debate.png", size: "168x168", alt: "", title: t("welcome.debates.title")) %>
+32a30
+>         <%= image_tag("icon_home_proposal.png", size: "168x168", alt: "", title: t("welcome.proposal.title"))  %>
+37a36
+>         <%= image_tag("icon_home_decide.png", size: "168x168", alt: "", title: t("welcome.decide.title")) %>
+41a41
+>         <%= image_tag("icon_home_do.png", size: "168x168", alt: "", title: t("welcome.do.title")) %>

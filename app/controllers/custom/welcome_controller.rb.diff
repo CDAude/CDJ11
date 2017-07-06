@@ -1,0 +1,4 @@
+8c8
+<       redirect_to :proposals
+---
+>       redirect_to :debates

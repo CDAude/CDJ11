@@ -1,0 +1,4 @@
+4c4
+<       <span class="sr-only"><%= t("layouts.header.notifications") %></span>
+---
+>       <span class="show-for-sr"><%= t("layouts.header.notifications") %></span>

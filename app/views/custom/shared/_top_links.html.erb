@@ -1,0 +1,10 @@
+<ul class="no-bullet external-links">
+  <li>
+    <%= link_to t("layouts.header.external_link_aude"),
+                t("layouts.header.external_link_aude_url"),
+                target: "_blank",
+                title: t("layouts.header.external_link_aude_url") %>
+  </li>
+
+  <%= raw content_block("top_links", I18n.locale) %>
+</ul>

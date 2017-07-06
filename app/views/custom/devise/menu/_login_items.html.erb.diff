@@ -1,0 +1,91 @@
+1a2
+> 
+3,5c4,7
+<     <%= link_to notifications_path, rel: "nofollow", class: "notifications" do %>
+<       <span class="show-for-sr"><%= t("layouts.header.notifications") %></span>
+<       <% if current_user.notifications_count > 0 %>
+---
+>     <% if current_user.notifications_count > 0 %>
+>     
+>       <%= link_to notifications_path, rel: "nofollow", class: "notifications hide-for-small-only" do %>
+>         <span class="sr-only"><%= t("layouts.header.notifications") %></span>
+9c11,21
+<       <% else %>
+---
+>       <% end %>
+>       
+>       <%= link_to notifications_path, rel: "nofollow", class: "show-for-small-only" do %>
+>         <div class="new-notif"></div>
+>         <%= image_tag(image_path_for('icon_notifications.png'), alt: t('layouts.header.new_notifications', count: current_user.notifications_count).html_safe) %>
+>         <%= t("layouts.header.notifications") %>
+>       <% end %>
+>       
+>     <% else %>
+>     
+>       <%= link_to notifications_path, rel: "nofollow", class: "notifications hide-for-small-only" do %>
+11a24,29
+>       
+>       <%= link_to notifications_path, rel: "nofollow", class: "show-for-small-only" do %>
+>         <%= image_tag(image_path_for('icon_no_notifications.png'), alt: t('layouts.header.no_notifications')) %>
+>         <%= t("layouts.header.notifications") %>
+>       <% end %>
+>       
+13a32
+>   
+15,16c34,37
+<     <%= link_to t("layouts.header.my_activity_link"),
+<                 user_path(current_user), rel: "nofollow" %>
+---
+>     <%= link_to user_path(current_user), rel: "nofollow" do %>
+>       <%= image_tag(image_path_for('icon_my_activity.png'), class: "show-for-small-only") %>
+>       <%= t("layouts.header.my_activity_link") %>
+>     <% end %>
+17a39
+>   
+19,20c41,44
+<     <%= link_to t("layouts.header.my_account_link"),
+<                 account_path, rel: "nofollow" %>
+---
+>     <%= link_to account_path, rel: "nofollow" do %>
+>       <%= image_tag(image_path_for('icon_my_account.png'), class: "show-for-small-only") %>
+>       <%= t("layouts.header.my_account_link") %>
+>     <% end %>
+21a46
+>   
+23,24c48,51
+<     <%= link_to t("devise_views.menu.login_items.logout"),
+<                 destroy_user_session_path, rel: "nofollow", method: :delete %>
+---
+>     <%= link_to destroy_user_session_path, rel: "nofollow", method: :delete do %>
+>       <%= image_tag(image_path_for('icon_logout.png'), class: "show-for-small-only") %>
+>       <%= t("devise_views.menu.login_items.logout") %>
+>     <% end %>
+25a53
+>   
+27,29c55,62
+<   <li>
+<     <%= link_to t("devise_views.menu.login_items.login"),
+<                 new_user_session_path, rel: "nofollow" %>
+---
+> 
+>   <li class="hide-for-small-only float-right">Pas encore inscrit ?</li><br>
+> 
+>   <li class="not-logged">
+>     <%= link_to new_user_session_path, rel: "nofollow" do %>
+>       <%= image_tag(image_path_for('icon_login.png'), class: "show-for-small-only") %>
+>       <%= t("devise_views.menu.login_items.login") %>
+>     <% end %>
+31,33c64,70
+<   <li>
+<     <%= link_to t("devise_views.menu.login_items.signup"),
+<                 new_user_registration_path, rel: "nofollow", class: "button" %>
+---
+>   
+>   <li class="not-logged">
+>     <%= link_to t("devise_views.menu.login_items.signup"), new_user_registration_path, rel: "nofollow", class: "button hide-for-small-only" %>
+>     <%= link_to new_user_registration_path, rel: "nofollow", class: "show-for-small-only" do %>
+>       <%= image_tag(image_path_for('icon_signup.png')) %>
+>       <%= t("devise_views.menu.login_items.signup") %>
+>     <% end %>
+34a72
+>   

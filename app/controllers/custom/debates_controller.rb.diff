@@ -1,0 +1,32 @@
+13c13
+<   has_orders %w{hot_score confidence_score created_at relevance}, only: :index
+---
+>   has_orders %w{created_at confidence_score most_commented featured relevance}, only: :index
+21a22
+>     @proposal_successfull_exists = Proposal.successful.exists?
+28,31c29,31
+< 
+<   def vote
+<     @debate.register_vote(current_user, params[:value])
+<     set_debate_votes(@debate)
+---
+>   
+>   def mark_featured
+>     @debate.update_attribute(:featured_at, Time.current)
+36d35
+<     redirect_to request.query_parameters.merge(action: :index)
+38,41c37,43
+< 
+<   def mark_featured
+<     @debate.update_attribute(:featured_at, Time.current)
+<     redirect_to request.query_parameters.merge(action: :index)
+---
+>   
+>   def vote
+>     @debate.register_vote(current_user, params[:value])
+>     set_debate_votes(@debate)
+>     if (@debate.likes - @debate.dislikes) >= Setting['votes_for_debate_success'].to_i
+>       mark_featured
+>     end
+53d54
+< 

@@ -1,0 +1,4 @@
+9c9
+<   <h1 class="sr-only"><%= t("shared.outline.budget") %></h1>
+---
+>   <h1 class="show-for-sr"><%= t("shared.outline.budget") %></h1>

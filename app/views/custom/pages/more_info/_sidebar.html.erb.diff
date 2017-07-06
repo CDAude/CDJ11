@@ -1,0 +1,4 @@
+2c2
+<   <h3><%= t("pages.more_info.faq.title") %></h3>
+---
+>   <h3 id="faq"><%= t("pages.more_info.faq.title") %></h3>

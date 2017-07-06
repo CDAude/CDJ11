@@ -1,0 +1,58 @@
+13a14,15
+>     
+>       <div class="line-break"></div>
+15,20c17,26
+<       <%= link_to setting['org_name'], root_path, class: "logo show-for-small-only" %>
+< 
+<       <span data-responsive-toggle="responsive-menu" data-hide-for="medium" class="float-right">
+<         <span class="menu-icon dark" data-toggle></span>
+<         <%= t("application.menu")%>
+<       </span>
+---
+>       <%= link_to root_path, class: 'show-for-small-only logo-safe-zone float-left', accesskey: "0" do %>
+>         <%= image_tag(image_path_for('logo_header.png'), class: 'logo-header', alt: t("layouts.header.logo")) %>
+>       <% end %>
+>       
+>       <div align="right">
+>         <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+>           <span class="menu-icon dark" data-toggle></span>
+>           <%= t("application.menu")%>&nbsp;&nbsp;
+>         </span>
+>       </div>
+23,26c29,31
+<         <div class="top-bar-title">
+<           <%= link_to root_path, class: "hide-for-small-only", accesskey: "0" do %>
+<             <%= image_tag(image_path_for('logo_header.png'), class: 'hide-for-small-only float-left', size: '80x80', alt: t("layouts.header.logo")) %>
+<             <%= setting['org_name'] %>
+---
+>         <div class="hide-for-small-only top-bar-title">
+>           <%= link_to root_path, class: 'logo-safe-zone', accesskey: "0" do %>
+>             <%= image_tag(image_path_for('logo_header.png'), class: 'logo-header', alt: t("layouts.header.logo")) %>
+29c34
+< 
+---
+>         
+31c36
+<           <ul class="menu">
+---
+>           <ul class="hide-for-small-only menu" style="float:right">
+37,42c42,49
+<             <div class="subnavigation row">
+<               <%= render "shared/subnavigation" %>
+<               <div class="small-12 column">
+<                 <%= render "shared/top_links" %>
+<               </div>
+<             </div>
+---
+>             <nav class="subnavigation">
+>               <ul class="subnav-main">
+>                 <%= render "shared/subnavigation_light" %>
+>                 <%= render "devise/menu/login_items" %>
+>                 <%= render "shared/admin_login_items" %>
+>                 <%= render "shared/top_links_light" %>
+>               </ul>
+>             </nav>
+53a61
+>       
+59d66
+< 

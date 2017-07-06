@@ -1,0 +1,55 @@
+<div id="<%= dom_id(spending_proposal) %>" class="investment-project clear">
+  <div class="panel">
+    <div class="row">
+
+      <div class="column">
+        <div class="investment-project-content">
+
+          <% cache [locale_and_user_status(spending_proposal), 'index', spending_proposal, spending_proposal.author] do %>
+            <span class="label-investment-project float-left"><%= t("spending_proposals.spending_proposal.spending_proposal") %></span>
+            
+            <h3><%= link_to spending_proposal.title, namespaced_spending_proposal_path(spending_proposal) %></h3>
+            
+            <p class="investment-project-info">
+              Le <%= l spending_proposal.created_at.to_date %>
+              
+              <% if spending_proposal.author.display_official_position_badge? %>
+                <span class="bullet">&nbsp;&bull;&nbsp;</span>
+                <span class="label round level-<%= spending_proposal.author.official_level %>">
+                  <%= spending_proposal.author.official_position %>
+                </span>
+              <% end %>
+
+              <% if spending_proposal.author.verified_organization? %>
+                <span class="bullet">&nbsp;&bull;&nbsp;</span>
+                <span class="label round is-association">
+                  <%= t("shared.collective") %>
+                </span>
+              <% end %>
+            </p>
+            
+            <div class="investment-project-description">
+              <%= spending_proposal.description %>
+              <div class="truncate"></div>
+            </div>
+            
+            <% if spending_proposal.external_url.present? %>
+              <div class="investment-project-image">
+                <%= link_to namespaced_spending_proposal_path(spending_proposal) do %>
+                  <%= image_tag(spending_proposal.external_url, alt: 'URL image invalide !') %>
+                <% end %>
+              </div>
+            <% end %>
+            
+            <div class="tags">
+              <% if spending_proposal.association_name.present? %>
+                <%= link_to spending_proposal.association_name, spending_proposals_path(association_name: spending_proposal.association_name), class: 'actu' %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

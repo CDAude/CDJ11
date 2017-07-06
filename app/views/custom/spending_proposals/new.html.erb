@@ -1,0 +1,9 @@
+<div class="spending-proposal-form row margin-top">
+  <div class="small-12 medium-9 column">
+    <%= render "shared/back_link" %>
+
+    <h1><%= t("spending_proposals.new.start_new") %></h1>
+    
+    <%= render "spending_proposals/form", form_url: spending_proposals_url %>
+  </div>
+</div>

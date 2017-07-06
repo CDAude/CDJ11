@@ -1,0 +1,45 @@
+15c15
+<       <span class="note-marked">
+---
+>       <p class="help-text" id="question-help-text">
+17,18c17,21
+<       </span>
+<       <%= f.text_field :question, maxlength: Proposal.question_max_length, placeholder: t("proposals.form.proposal_question"), label: false %>
+---
+>       </p>
+>       <%= f.text_field :question, maxlength: Proposal.question_max_length,
+>                                   placeholder: t("proposals.form.proposal_question"),
+>                                   label: false,
+>                                   aria: {describedby: "question-help-text"} %>
+23c26
+<       <p class="note"><%= t("proposals.form.proposal_summary_note") %></p>
+---
+>       <p class="help-text" id="summary-help-text"><%= t("proposals.form.proposal_summary_note") %></p>
+25c28,29
+<                       placeholder: t('proposals.form.proposal_summary') %>
+---
+>                       placeholder: t('proposals.form.proposal_summary'),
+>                       aria: {describedby: "summary-help-text"} %>
+36,37c40,42
+<       <p class="note"><%= t("proposals.form.proposal_video_url_note") %></p>
+<       <%= f.text_field :video_url, placeholder: t("proposals.form.proposal_video_url"), label: false %>
+---
+>       <p class="help-text" id="video-url-help-text"><%= t("proposals.form.proposal_video_url_note") %></p>
+>       <%= f.text_field :video_url, placeholder: t("proposals.form.proposal_video_url"), label: false,
+>                                    aria: {describedby: "video-url-help-text"} %>
+52c57
+<       <p class="note"><%= t("proposals.form.tags_instructions") %></p>
+---
+>       <p class="help-text" id="tag-list-help-text"><%= t("proposals.form.tags_instructions") %></p>
+65c70,71
+<                         class: 'js-tag-list' %>
+---
+>                         class: 'js-tag-list',
+>                         aria: {describedby: "tag-list-help-text"} %>
+71,72c77,79
+<         <p class="note"><%= t("proposals.form.proposal_responsible_name_note") %></p>
+<         <%= f.text_field :responsible_name, placeholder: t("proposals.form.proposal_responsible_name"), label: false %>
+---
+>         <p class="help-text" id="responsible-name-help-text"><%= t("proposals.form.proposal_responsible_name_note") %></p>
+>         <%= f.text_field :responsible_name, placeholder: t("proposals.form.proposal_responsible_name"), label: false,
+>                                             aria: {describedby: "responsible-name-help-text"} %>

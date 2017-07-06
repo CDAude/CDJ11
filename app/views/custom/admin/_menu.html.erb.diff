@@ -1,0 +1,97 @@
+36,37c36,37
+<         <li <%= "class=active" if controller_name == "hidden_users" %>>
+<           <%= link_to t("admin.menu.hidden_users"), admin_hidden_users_path %>
+---
+>         <li <%= "class=active" if controller_name == "users" %>>
+>           <%= link_to t("admin.menu.hidden_users"), admin_users_path %>
+64c64
+<           <li <%= "class=active" if ["polls", "officer_assignments", "booth_assignments", "recounts", "results"].include? controller_name  %>>
+---
+>           <li <%= 'class=active' if ["polls", "officer_assignments", "booth_assignments", "recounts", "results"].include? controller_name  %>>
+72c72
+<           <li <%= "class=active" if controller_name == "officers" %>>
+---
+>           <li <%= 'class=active' if controller_name == 'officers' %>>
+76c76
+<           <li <%= "class=active" if controller_name == "booths" %>>
+---
+>           <li <%= 'class=active' if controller_name == 'booths' %>>
+84c84
+<       <li class="section-title <%= "active" if controller_name == "budgets" %>">
+---
+>       <li class="section-title" <%= "class=active" if controller_name == "budgets" %>>
+98,101d97
+<         <li <%= "class=active" if controller_name == "administrators" %>>
+<           <%= link_to t("admin.menu.administrators"), admin_administrators_path %>
+<         </li>
+< 
+110c106
+<         <li <%= "class=active" if controller_name == "moderators" %>>
+---
+>         <li <%= 'class=active' if controller_name == 'moderators' %>>
+114c110
+<         <li <%= "class=active" if controller_name == "valuators" %>>
+---
+>         <li <%= 'class=active' if controller_name == 'valuators' %>>
+118c114
+<         <li <%= "class=active" if controller_name == "managers" %>>
+---
+>         <li <%= 'class=active' if controller_name == 'managers' %>>
+121,124d116
+< 
+<         <li <%= 'class=active' if controller_name == 'users' %>>
+<           <%= link_to t('admin.menu.users'), admin_users_path %>
+<         </li>
+128,136d119
+<     <% if feature?(:legislation) %>
+<       <li class="section-title <%= "active" if controller.class.parent == Admin::Legislation %>">
+<         <%= link_to admin_legislation_processes_path do %>
+<           <span class="icon-edit"></span>
+<           <strong><%= t("admin.menu.legislation") %></strong>
+<         <% end %>
+<       </li>
+<     <% end %>
+< 
+148a132,147
+>     <li class="section-title" <%= 'class=active' if controller_name == 'geozones' %>>
+>       <%= link_to admin_geozones_path do %>
+>         <span class="icon-reply"></span>
+>         <strong><%= t('admin.menu.geozones') %></strong>
+>       <% end %>
+>     </li>
+> 
+>     <% if feature?(:signature_sheets) %>
+>       <li class="section-title" <%= "class=active" if controller_name == "signature_sheets" %>>
+>         <%= link_to admin_signature_sheets_path do %>
+>           <span class="icon-document"></span>
+>           <strong><%= t("admin.menu.signature_sheets") %></strong>
+>         <% end %>
+>       </li>
+>     <% end %>
+> 
+163c162
+<         <li <%= "class=active" if controller_name == "content_blocks" %>>
+---
+>         <li <%= 'class=active' if controller_name == 'content_blocks' %>>
+167,187d165
+<     </li>
+< 
+<     <li class="section-title <%= "active" if controller_name == "geozones" %>">
+<       <%= link_to admin_geozones_path do %>
+<         <strong><%= t('admin.menu.geozones') %></strong>
+<       <% end %>
+<     </li>
+< 
+<     <% if feature?(:signature_sheets) %>
+<       <li class="section-title <%= "active" if controller_name == "signature_sheets" %>">
+<         <%= link_to admin_signature_sheets_path do %>
+<           <strong><%= t("admin.menu.signature_sheets") %></strong>
+<         <% end %>
+<       </li>
+<     <% end %>
+< 
+<     <li <%= "class=active" if controller_name == "newsletter" %>>
+<       <%= link_to admin_newsletters_path do %>
+<         <span class="icon-zip"></span>
+<         <%= t("admin.menu.newsletter") %>
+<       <% end %>

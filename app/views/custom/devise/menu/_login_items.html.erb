@@ -1,0 +1,73 @@
+<% if user_signed_in? %>
+
+  <li>
+    <% if current_user.notifications_count > 0 %>
+    
+      <%= link_to notifications_path, rel: "nofollow", class: "notifications hide-for-small-only" do %>
+        <span class="sr-only"><%= t("layouts.header.notifications") %></span>
+        <span class="icon-circle" aria-hidden="true"></span>
+        <span class="icon-notification" aria-hidden="true" title="<%= t('layouts.header.new_notifications', count: current_user.notifications_count).html_safe %>">
+        </span>
+      <% end %>
+      
+      <%= link_to notifications_path, rel: "nofollow", class: "show-for-small-only" do %>
+        <div class="new-notif"></div>
+        <%= image_tag(image_path_for('icon_notifications.png'), alt: t('layouts.header.new_notifications', count: current_user.notifications_count).html_safe) %>
+        <%= t("layouts.header.notifications") %>
+      <% end %>
+      
+    <% else %>
+    
+      <%= link_to notifications_path, rel: "nofollow", class: "notifications hide-for-small-only" do %>
+        <span class="icon-no-notification" aria-hidden="true" title="<%= t('layouts.header.no_notifications') %>"></span>
+      <% end %>
+      
+      <%= link_to notifications_path, rel: "nofollow", class: "show-for-small-only" do %>
+        <%= image_tag(image_path_for('icon_no_notifications.png'), alt: t('layouts.header.no_notifications')) %>
+        <%= t("layouts.header.notifications") %>
+      <% end %>
+      
+    <% end %>
+  </li>
+  
+  <li>
+    <%= link_to user_path(current_user), rel: "nofollow" do %>
+      <%= image_tag(image_path_for('icon_my_activity.png'), class: "show-for-small-only") %>
+      <%= t("layouts.header.my_activity_link") %>
+    <% end %>
+  </li>
+  
+  <li>
+    <%= link_to account_path, rel: "nofollow" do %>
+      <%= image_tag(image_path_for('icon_my_account.png'), class: "show-for-small-only") %>
+      <%= t("layouts.header.my_account_link") %>
+    <% end %>
+  </li>
+  
+  <li>
+    <%= link_to destroy_user_session_path, rel: "nofollow", method: :delete do %>
+      <%= image_tag(image_path_for('icon_logout.png'), class: "show-for-small-only") %>
+      <%= t("devise_views.menu.login_items.logout") %>
+    <% end %>
+  </li>
+  
+<% else %>
+
+  <li class="hide-for-small-only float-right">Pas encore inscrit ?</li><br>
+
+  <li class="not-logged">
+    <%= link_to new_user_session_path, rel: "nofollow" do %>
+      <%= image_tag(image_path_for('icon_login.png'), class: "show-for-small-only") %>
+      <%= t("devise_views.menu.login_items.login") %>
+    <% end %>
+  </li>
+  
+  <li class="not-logged">
+    <%= link_to t("devise_views.menu.login_items.signup"), new_user_registration_path, rel: "nofollow", class: "button hide-for-small-only" %>
+    <%= link_to new_user_registration_path, rel: "nofollow", class: "show-for-small-only" do %>
+      <%= image_tag(image_path_for('icon_signup.png')) %>
+      <%= t("devise_views.menu.login_items.signup") %>
+    <% end %>
+  </li>
+  
+<% end %>

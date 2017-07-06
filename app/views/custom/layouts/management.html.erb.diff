@@ -1,0 +1,35 @@
+2,3c2
+< <html lang="es">
+< 
+---
+> <html lang="<%= I18n.locale %>">
+9,10c8,9
+<     <%= stylesheet_link_tag  "application", media: "all" %>
+<     <%= stylesheet_link_tag  "print", media: "print" %>
+---
+>     <%= stylesheet_link_tag "application", media: "all" %>
+>     <%= stylesheet_link_tag "print", media: "print" %>
+21a21
+>           <%= link_to t("admin.dashboard.index.back") + " " + setting['org_name'], root_path, class: "float-right back-web" %>
+27d26
+< 
+29d27
+< 
+38c36
+<                 <%= image_tag(image_path_for('logo_header.png'), class: 'hide-for-small-only float-left', size: '80x80', alt: t("layouts.header.logo")) %>
+---
+>                 <%= image_tag(image_path_for('logo_header.png'), class: 'hide-for-small-only float-left', alt: t("layouts.header.logo")) %>
+40c38
+<                 &nbsp;|&nbsp;<%= t("management.dashboard.index.title") %>
+---
+>                 &nbsp;|&nbsp;<%= t("management.dashboard.index.title") %> &nbsp;
+50c48
+<         <%= render "/management/menu" %>
+---
+>         <%= render "management/menu" %>
+56c54
+<         <%= render 'layouts/flash' %>
+---
+>         <%= render "layouts/flash" %>
+60d57
+< 

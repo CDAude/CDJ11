@@ -1,0 +1,23 @@
+3,5c3
+<   <%= render "shared/search_form",
+<              search_path: spending_proposals_path(page: 1),
+<              i18n_namespace: "spending_proposals.index.search_form" %>
+---
+>   <%= render "shared/search_form", search_path: spending_proposals_path(page: 1), i18n_namespace: "spending_proposals.index.search_form" %>
+9c7
+<   <h1 class="show-for-sr"><%= t("shared.outline.budget") %></h1>
+---
+>   <h1 class="sr-only"><%= t("shared.outline.budget") %></h1>
+15d12
+<         <%= content_tag(:h2, t("spending_proposals.index.unfeasible")) if params[:unfeasible].present? %>
+16a14
+>         <%= content_tag(:h2, t("spending_proposals.index.by_association_name", association_name: @association_name)) if @association_name.present? %>
+24,27c22
+< 
+<       <div class="show-for-small-only">
+<         <%= link_to t("spending_proposals.index.start_spending_proposal"), new_spending_proposal_path, class: 'button expanded' %>
+<       </div>
+---
+>       
+28a24
+>       

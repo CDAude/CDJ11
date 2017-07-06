@@ -1,0 +1,8 @@
+11c11
+<   invisible_captcha only: [:create, :update]
+---
+>   invisible_captcha only: [:create, :update], honeypot: :subtitle
+54c54
+<       params.require(:spending_proposal).permit(:title, :subtitle, :description, :external_url, :geozone_id, :association_name, :terms_of_service)
+---
+>       params.require(:spending_proposal).permit(:title, :description, :external_url, :geozone_id, :association_name, :terms_of_service)

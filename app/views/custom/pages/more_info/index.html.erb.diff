@@ -1,0 +1,16 @@
+1,4c1
+< <% provide :title do %><%= t("pages.titles.more_info", org_name: setting['org_name']) %><% end %>
+< <% content_for :canonical do %>
+<   <%= render "shared/canonical", href: more_info_url %>
+< <% end %>
+---
+> <% provide :title do %><%= t("pages.titles.more_info") %><% end %>
+27,30d23
+<       <% if feature?(:budgets) %>
+<         <%= render "pages/more_info/budgets" %>
+<       <% end %>
+< 
+34a28
+>     
+41a36
+>     

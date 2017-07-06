@@ -1,0 +1,17 @@
+19c19
+<       <%= f.text_field :external_url, placeholder: t("spending_proposals.form.external_url"), label: false %>
+---
+>       <%= f.text_field :external_url, placeholder: t("spending_proposals.form.external_url_holder"), label: false %>
+28,29c28,29
+<       <%= f.label :association_name, t("spending_proposals.form.association_name_label") %>
+<       <%= f.text_field :association_name, placeholder: t("spending_proposals.form.association_name"), label: false %>
+---
+>       <%= f.label :association_name, t("spending_proposals.form.tag") %>
+>       <%= f.text_field :association_name, placeholder: t("spending_proposals.form.tag"), label: false %>
+30a31,32
+>     
+>     <div id="line-break" class="small-12 column"><br></div>
+46c48
+<       <%= f.submit(class: "button", value: t("spending_proposals.form.submit_buttons.#{action_name}")) %>
+---
+>       <%= f.submit(class: "button", value: t("spending_proposals.form.submit_buttons.new")) %>

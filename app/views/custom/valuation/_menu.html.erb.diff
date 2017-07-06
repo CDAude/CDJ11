@@ -1,0 +1,7 @@
+4c4,7
+<       <%= link_to t("valuation.menu.title"), valuation_root_path %>
+---
+>       <%= link_to valuation_root_path do %>
+>         <span class="icon-zip"></span>
+>         <%= t("valuation.menu.title") %>
+>       <% end %>

@@ -1,0 +1,90 @@
+3,7c3
+<     <div class="small-12 large-4 column">
+<       <h1 class="logo">
+<         <%= link_to t("layouts.header.open_gov", open: "#{t('layouts.header.open')}").html_safe %>
+<       </h1>
+< 
+---
+>     <div class="small-12 large-12 column">
+10,11c6,7
+<           open_source: link_to(t("layouts.footer.open_source"), t("layouts.footer.open_source_url"), target: "blank", rel: "nofollow"),
+<           consul:  link_to(t("layouts.footer.consul"), t("layouts.footer.consul_url"), target: "blank", rel: "nofollow")).html_safe
+---
+>           open_source: link_to(t("layouts.footer.open_source"), t("layouts.footer.open_source_url"), target: "blank"),
+>           consul: link_to(t("layouts.footer.consul"), t("layouts.footer.consul_url"), target: "blank")).html_safe
+14c10
+<         <%= link_to t("layouts.footer.faq"), faq_path %>
+---
+>         <%= link_to t("layouts.footer.faq"), t("layouts.footer.faq_url") %>.
+17,33d12
+< 
+<     <div class="footer-sections small-12 large-8 column">
+<       <div class="small-12 medium-4 column">
+<         <%= link_to t("layouts.footer.participation_title"), root_path, class: "title" %>
+<         <p><%= t("layouts.footer.participation_text") %></p>
+<       </div>
+< 
+<       <div class="small-12 medium-4 column">
+<         <%= link_to t("layouts.footer.transparency_title"), setting['transparency_url'].presence || t("layouts.footer.transparency_url"), class: "title", rel: "nofollow" %>
+<         <p><%= t("layouts.footer.transparency_text") %></p>
+<       </div>
+< 
+<       <div class="small-12 medium-4 column">
+<         <%= link_to t("layouts.footer.open_data_title"), setting['opendata_url'].presence || t("layouts.header.external_link_opendata_url"), class: "title", rel: "nofollow" %>
+<         <p><%= t("layouts.footer.open_data_text") %></p>
+<       </div>
+<     </div>
+51,54c30,32
+<               <%= link_to "https://twitter.com/#{setting['twitter_handle']}", target: "_blank",
+<                            title: t("shared.go_to_page") + t("social.twitter", org: setting['org_name']) + t('shared.target_blank_html') do %>
+<                               <span class="show-for-sr"><%= t("social.twitter", org: setting['org_name']) %></span>
+<                               <span class="icon-twitter" aria-hidden="true"></span>
+---
+>               <%= link_to "https://twitter.com/#{setting['twitter_handle']}", target: "_blank", title: t("social.twitter") + t('shared.target_blank_html') do %>
+>                 <span class="sr-only"><%= t("social.twitter") %></span>
+>                 <span class="icon-twitter" aria-hidden="true"></span>
+60,63c38,40
+<               <%= link_to "https://www.facebook.com/#{setting['facebook_handle']}/", target: "_blank",
+<                           title: t("shared.go_to_page") + t("social.facebook", org: setting['org_name']) + t('shared.target_blank_html') do %>
+<                           <span class="show-for-sr"><%= t("social.facebook", org: setting['org_name']) %></span>
+<                           <span class="icon-facebook" aria-hidden="true"></span>
+---
+>               <%= link_to "https://www.facebook.com/#{setting['facebook_handle']}/", target: "_blank", title: t("social.facebook") + t('shared.target_blank_html') do %>
+>                 <span class="sr-only"><%= t("social.facebook") %></span>
+>                 <span class="icon-facebook" aria-hidden="true"></span>
+69,72c46,48
+<               <%= link_to setting['blog_url'], target: "_blank",
+<                           title: t("shared.go_to_page") + t("social.blog", org: setting['org_name']) + t('shared.target_blank_html') do %>
+<                           <span class="show-for-sr"><%= t("social.blog", org: setting['org_name']) %></span>
+<                           <span class="icon-blog" aria-hidden="true"></span>
+---
+>               <%= link_to setting['blog_url'], target: "_blank", title: t("social.blog") + t('shared.target_blank_html') do %>
+>                 <span class="sr-only"><%= t("social.blog") %></span>
+>                 <span class="icon-blog" aria-hidden="true"></span>
+78,81c54,56
+<               <%= link_to "https://www.youtube.com/#{setting['youtube_handle']}", target: "_blank",
+<                           title: t("shared.go_to_page") + t("social.youtube", org: setting['org_name']) + t('shared.target_blank_html') do %>
+<                           <span class="show-for-sr"><%= t("social.youtube", org: setting['org_name']) %></span>
+<                           <span class="icon-youtube" aria-hidden="true"></span>
+---
+>               <%= link_to "https://www.youtube.com/#{setting['youtube_handle']}", target: "_blank", title: t("social.youtube") + t('shared.target_blank_html') do %>
+>                 <span class="sr-only"><%= t("social.youtube") %></span>
+>                 <span class="icon-youtube" aria-hidden="true"></span>
+87,99c62,64
+<               <%= link_to "https://www.telegram.me/#{setting['telegram_handle']}", target: "_blank",
+<                           title: t("shared.go_to_page") + t("social.telegram", org: setting['org_name']) + t('shared.target_blank_html') do %>
+<                           <span class="show-for-sr"><%= t("social.telegram", org: setting['org_name']) %></span>
+<                           <span class="icon-telegram" aria-hidden="true"></span>
+<               <% end %>
+<             </li>
+<           <% end %>
+<           <% if setting['instagram_handle'] %>
+<             <li class="inline-block">
+<               <%= link_to "https://www.instagram.com/#{setting['instagram_handle']}", target: "_blank",
+<                           title: t("shared.go_to_page") + t("social.instagram", org: setting['org_name']) + t('shared.target_blank_html') do %>
+<                           <span class="show-for-sr"><%= t("social.instagram", org: setting['org_name']) %></span>
+<                           <span class="icon-instagram" aria-hidden="true"></span>
+---
+>               <%= link_to "https://www.telegram.me/#{setting['telegram_handle']}", target: "_blank", title: t("social.telegram") + t('shared.target_blank_html') do %>
+>                 <span class="sr-only"><%= t("social.telegram") %></span>
+>                 <span class="icon-telegram" aria-hidden="true"></span>

@@ -3,3 +3,24 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+$brand:             #ED8B00;
+$dark:              darken($brand, 10%);
+$link:		    $brand;
+$link-hover:        $dark;
+$tag-hover:         $text-light;
+$like:              #46DB91;
+$unlike:            #F04124;
+$check:             $like;
+$delete:            $unlike;
+$proposals:         #d88315;
+$proposals-dark:    darken($proposals, 15%);
+$proposals-jauge:   #DDDDDD;
+$budget:            #0077C8;
+$budget-hover:      #0077C8;
+
+$breakpoints: (
+  small: 0,
+  medium: 960px, // 640px
+  large: 1281px, // 1024px
+);

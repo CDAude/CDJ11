@@ -1,0 +1,40 @@
+<% if feature?(:debates) %>
+  <li>
+    <%= link_to debates_path, accesskey: "1", class: ("active" if current_page?(debates_path)) do %>
+      <%= image_tag(image_path_for('icon_debates.png')) %>
+      <%= t("layouts.header.debates") %>
+    <% end %>
+  </li>
+<% end %>
+
+<li>
+  <%= link_to proposals_path, accesskey: "2", class: ("active" if current_page?(proposals_path)) do %>
+    <%= image_tag(image_path_for('icon_proposals.png')) %>
+    <%= t("layouts.header.proposals") %>
+  <% end %>
+</li>
+
+<% if feature?(:polls) %>
+  <li>
+    <%= link_to polls_path, accesskey: "3", class: ("active" if current_page?(polls_path)) do %>
+      <%= image_tag(image_path_for('icon_polls.png')) %>
+      <%= t("layouts.header.poll_questions") %>
+    <% end %>
+  </li>
+<% end %>
+
+<% if feature?(:spending_proposals) %>
+  <li>
+    <%= link_to spending_proposals_path, accesskey: "5", class: ("active" if current_page?(spending_proposals_path)) do %>
+      <%= image_tag(image_path_for('icon_news.png')) %>
+      <%= t("layouts.header.spending_proposals") %>
+    <% end %>
+  </li>
+<% end %>
+
+<li>
+  <%= link_to more_info_path, accesskey: "4", class: ("active" if current_page?(more_info_path)) do %>
+    <%= image_tag(image_path_for('icon_more_info.png')) %>
+    <%= t("layouts.header.more_info_light") %>
+  <% end %>
+</li>

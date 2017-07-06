@@ -1,0 +1,24 @@
+6c6
+<   before_action :load_categories, only: [:index, :new, :edit, :map, :summary]
+---
+>   before_action :load_categories, only: [:index, :new, :create, :edit, :map, :summary]
+24a25,34
+>   def create
+>     @proposal = Proposal.new(proposal_params.merge(author: current_user))
+> 
+>     if @proposal.save
+>       redirect_to share_proposal_path(@proposal), notice: I18n.t('flash.actions.create.proposal')
+>     else
+>       render :new
+>     end
+>   end
+> 
+47a58,63
+>   def share
+>     if Setting['proposal_improvement_path'].present?
+>       @proposal_improvement_path = Setting['proposal_improvement_path']
+>     end
+>   end
+> 
+106d121
+< 

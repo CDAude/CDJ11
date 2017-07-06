@@ -1,0 +1,8 @@
+4c4
+<   default_scope { order(id: :asc) }
+---
+>   default_scope { order(display_order: :asc) }
+6c6
+<   scope :banner_img, -> { where("key ilike ?", "banner-img.%")}
+---
+>   scope :banner_img,   -> { where("key ilike ?", "banner-img.%")}

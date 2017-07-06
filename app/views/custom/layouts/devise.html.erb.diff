@@ -1,0 +1,15 @@
+2c2
+< <html lang="es">
+---
+> <html lang="<%= I18n.locale %>">
+17c17
+<       <div class="auth-image small-12 medium-3 column">
+---
+>       <div class="auth-image small-12 medium-2 column">
+20,21c20
+<             <%= image_tag(image_path_for('logo_header.png'), class: 'float-left', alt: t("layouts.header.logo")) %>
+<             <%= setting['org_name'] %>
+---
+>             <%= image_tag(image_path_for('logo_header.png'), class: 'logo-header float-left', alt: t("layouts.header.logo")) %>
+31d29
+< 

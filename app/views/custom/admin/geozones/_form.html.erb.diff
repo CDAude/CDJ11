@@ -1,0 +1,12 @@
+6c6
+<     <div class="small-12 medium-6 large-4 column">
+---
+>     <div class="small-12 medium-6 large-3 column">
+10c10
+<     <div class="small-12 medium-6 large-4 column">
+---
+>     <div class="small-12 medium-6 large-5 column">
+23c23
+< 
+---
+>   <br>

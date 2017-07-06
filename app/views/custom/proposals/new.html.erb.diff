@@ -1,0 +1,43 @@
+1c1,2
+< <div class="proposal-form row">
+---
+> <% if user_signed_in? && (current_user.administrator? || current_user.poll_officer?) %>
+>   <div class="proposal-form row">
+3,4c4,5
+<   <div class="small-12 medium-9 column">
+<     <%= render "shared/back_link" %>
+---
+>     <div class="small-12 medium-9 column">
+>       <%= render "shared/back_link" %>
+6,10c7,8
+<     <h1><%= t("proposals.new.start_new") %></h1>
+<     <div data-alert class="callout primary">
+<       <%= link_to more_info_path(anchor: "proposals") ,title: t('shared.target_blank_html'), target: "_blank" do %>
+<         <%= t("proposals.new.more_info")%>
+<       <% end %>
+---
+>       <h1><%= t("proposals.new.start_new") %></h1>
+>       <%= render "proposals/form", form_url: proposals_url %>
+12,13d9
+<     <%= render "proposals/form", form_url: proposals_url %>
+<   </div>
+15,22c11,16
+<   <div class="small-12 medium-3 column">
+<     <span class="icon-proposals float-right"></span>
+<     <h2><%= t("proposals.new.recommendations_title") %></h2>
+<     <ul class="recommendations">
+<       <li><%= t("proposals.new.recommendation_one") %></li>
+<       <li><%= t("proposals.new.recommendation_two") %></li>
+<       <li><%= t("proposals.new.recommendation_three") %></li>
+<     </ul>
+---
+>     <div class="small-12 medium-3 column">
+>       <span class="icon-proposals float-right"></span>
+>       <h3>
+>         <%= t("proposals.new.recommendation_title", chart_link: link_to(t("proposals.new.recommendation_chart"), t("proposals.new.recommendation_url"), target: "blank")).html_safe %>
+>       </h3>
+>     </div>
+24c18
+< </div>
+---
+> <% end %>

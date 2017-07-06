@@ -1,0 +1,47 @@
+<header>
+  <div class="top-links">
+    <div class="expanded row">
+      <%= render 'shared/locale_switcher' %>
+      <%= link_to t("admin.dashboard.index.back") + " " + setting['org_name'], root_path, class: "float-right back-web" %>
+    </div>
+  </div>
+
+  <div class="expanded row">
+    <div class="top-bar">
+
+      <%= link_to setting['org_name'], namespaced_root_path, class: "logo show-for-small-only" %>
+
+      <span data-responsive-toggle="responsive-menu" data-hide-for="medium" class="float-right">
+        <span class="menu-icon dark" data-toggle></span>
+        <%= t("application.menu")%>
+      </span>
+
+      <div id="responsive-menu">
+        <div class="top-bar-title hide-for-small-only">
+          <h1>
+            <%= link_to root_path, class: 'logo-safe-zone' do %>
+              <%= image_tag(image_path_for('logo_header.png'), class: 'logo-header', alt: t("layouts.header.logo")) %>
+            <% end %>
+            <%= link_to namespaced_header_title, namespaced_root_path %>
+          </h1>
+        </div>
+        
+        <div class="top-bar-right">
+          <ul class="hide-for-small-only menu" style="float:right">
+            <%= render "shared/admin_login_items" %>
+            <%= render "devise/menu/login_items" %>
+          </ul>
+          
+          <div class="show-for-small-only">
+            <nav class="subnavigation">
+              <ul class="subnav-admin">
+                <%= render "shared/admin_login_items" %>
+                <%= render "devise/menu/login_items" %>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,24 @@
+9c9
+<       <div class="small-12 column">
+---
+>       <div class="small-12 large-6 column">
+14c14
+<                            placeholder: t("shared.advanced_search.general_placeholder") %>
+---
+>                            placeholder: t("shared.advanced_search.keywords") %>
+17,24c17,18
+<       <div class="small-12 large-3 column">
+<         <label for="advanced_search_official_level"><%= t("shared.advanced_search.author_type") %></label>
+<         <%= select_tag('advanced_search[official_level]', official_level_search_options,
+<                       include_blank: t("shared.advanced_search.author_type_blank")) %>
+<       </div>
+< 
+<       <div class="small-12 large-9">
+<         <div class="small-12 large-4 column">
+---
+>       <div class="small-12 large-6 column">
+>         <div class="small-12 large-12">
+31c25
+<         <div id='js-custom-date' class='small-12 large-8 column' style="display: none">
+---
+>         <div id='js-custom-date' class='small-12 large-12 column' style="display: none">

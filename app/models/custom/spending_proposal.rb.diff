@@ -1,0 +1,60 @@
+18c18
+<   validates :feasible_explanation, presence: { if: :feasible_explanation_required? }
+---
+>   validates_presence_of :feasible_explanation, if: :feasible_explanation_required?
+20c20
+<   validates :title, length: { in: 4..SpendingProposal.title_max_length }
+---
+>   validates :title, length: { in: 5..SpendingProposal.title_max_length }
+28a29
+>   scope :sort_by_created_at,     -> { reorder(created_at: :desc) }
+34,36c35,37
+<   scope :by_admin,    ->(admin)    { where(administrator_id: admin.presence) }
+<   scope :by_tag,      ->(tag_name) { tagged_with(tag_name) }
+<   scope :by_valuator, ->(valuator) { where("valuation_assignments.valuator_id = ?", valuator.presence).joins(:valuation_assignments) }
+---
+>   scope :by_admin,    -> (admin)    { where(administrator_id: admin.presence) }
+>   scope :by_tag,      -> (tag_name) { tagged_with(tag_name) }
+>   scope :by_valuator, -> (valuator) { where("valuation_assignments.valuator_id = ?", valuator.presence).joins(:valuation_assignments) }
+38c39
+<   scope :for_render, -> { includes(:geozone) }
+---
+>   scope :for_render,             -> { includes(:geozone) }
+41a43,46
+>   def subtitle
+>     super.try :html_safe
+>   end
+>   
+47c52
+<     params.select{|x, _| %w{geozone_id administrator_id tag_name valuator_id}.include? x.to_s }
+---
+>     params.select{|x,_| %w{geozone_id administrator_id tag_name valuator_id}.include? x.to_s }
+52,56c57,62
+<     results = results.by_geozone(params[:geozone_id])             if params[:geozone_id].present?
+<     results = results.by_admin(params[:administrator_id])         if params[:administrator_id].present?
+<     results = results.by_tag(params[:tag_name])                   if params[:tag_name].present?
+<     results = results.by_valuator(params[:valuator_id])           if params[:valuator_id].present?
+<     results = results.send(current_filter)                        if current_filter.present?
+---
+>     results = results.by_geozone(params[:geozone_id])                 if params[:geozone_id].present?
+>     results = results.by_association_name(params[:association_name])  if params[:association_name].present?
+>     results = results.by_admin(params[:administrator_id])             if params[:administrator_id].present?
+>     results = results.by_tag(params[:tag_name])                       if params[:tag_name].present?
+>     results = results.by_valuator(params[:valuator_id])               if params[:valuator_id].present?
+>     results = results.send(current_filter)                            if current_filter.present?
+62d67
+<       author.username    => 'B',
+64c69,70
+<       description        => 'C'
+---
+>       description        => 'C',
+>       association_name   => 'D'
+69c75
+<     pg_search(terms)
+---
+>     self.pg_search(terms)
+77a84,87
+>   end
+>   
+>   def self.by_association_name(association_name)
+>     where(association_name: association_name.presence)

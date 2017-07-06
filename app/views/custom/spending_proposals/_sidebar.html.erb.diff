@@ -1,0 +1,27 @@
+0a1,6
+> <% if user_signed_in? && (current_user.administrator? || current_user.poll_officer?) %>
+>   <div>
+>     <%= link_to t("spending_proposals.index.start_spending_proposal"), new_spending_proposal_path, class: 'button expanded' %>
+>   </div>
+> <% end %>
+> 
+1a8
+> 
+5d11
+<   <%= link_to t('geozones.all'), spending_proposals_path(geozone: nil) %>
+13c19,20
+< <h2 class="sidebar-title"><%= t("spending_proposals.index.sidebar.feasibility") %></h2>
+---
+> 
+> <h2 class="sidebar-title"><%= t("spending_proposals.index.sidebar.tags") %></h2>
+15c22,28
+< <%= link_to t('spending_proposals.index.sidebar.unfeasible'), spending_proposals_path(unfeasible: '1') %>
+\ Pas de fin de ligne à la fin du fichier
+---
+> <div class="tags">
+>   <% SpendingProposal.all.each do |spending_proposal| %>
+>     <% if spending_proposal.association_name.present? %>
+>       <%= link_to spending_proposal.association_name, spending_proposals_path(association_name: spending_proposal.association_name), class: 'actu' %>
+>     <% end %>
+>   <% end %>
+> </div>

@@ -1,0 +1,4 @@
+23c23
+<         <td class="break"><%= geozone.html_map_coordinates %></td>
+---
+>         <td class="coords"><%= geozone.html_map_coordinates %></td>

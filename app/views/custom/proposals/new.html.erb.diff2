@@ -1,0 +1,4 @@
+8c8
+<       <%= link_to "/proposals_info",title: t('shared.target_blank_html'), target: "_blank" do %>
+---
+>       <%= link_to more_info_path(anchor: "proposals") ,title: t('shared.target_blank_html'), target: "_blank" do %>

@@ -1,0 +1,44 @@
+1a2
+> 
+10,11d10
+<   include HasPublicAuthor
+<   include Graphqlable
+31a31
+>   scope :featured,                 -> { where("(cached_votes_up - cached_votes_down) >= ?", Setting['votes_for_debate_success'].to_i)}
+38a39
+>   scope :sort_by_featured,         -> { where("(cached_votes_up - cached_votes_down) >= ?", Setting['votes_for_debate_success'].to_i)}
+41,42c42
+<   scope :featured,                 -> { where("featured_at is not null")}
+<   scope :public_for_api,           -> { all }
+---
+>   
+58c58
+<     pg_search(terms)
+---
+>     self.pg_search(terms)
+115,118c115
+<     self.hot_score = ScoreCalculator.hot_score(created_at,
+<                                                cached_votes_total,
+<                                                cached_votes_up,
+<                                                comments_count)
+---
+>     self.hot_score = ScoreCalculator.hot_score(created_at, cached_votes_total, cached_votes_up, comments_count)
+122,123c119
+<     self.confidence_score = ScoreCalculator.confidence_score(cached_votes_total,
+<                                                              cached_votes_up)
+---
+>     self.confidence_score = ScoreCalculator.confidence_score(cached_votes_total, cached_votes_up)
+127c123
+<     tags.each{ |t| t.decrement_custom_counter_for('Debate') }
+---
+>     self.tags.each{ |t| t.decrement_custom_counter_for('Debate') }
+131c127
+<     tags.each{ |t| t.increment_custom_counter_for('Debate') }
+---
+>     self.tags.each{ |t| t.increment_custom_counter_for('Debate') }
+135c131
+<     featured_at.present?
+---
+>     self.featured_at.present?
+137d132
+< 

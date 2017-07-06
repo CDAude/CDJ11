@@ -1,0 +1,67 @@
+<header>
+
+  <div class="top-links">
+    <div class="row">
+      <%= render "shared/locale_switcher" %>
+      <div class="hide-for-small-only">
+        <%= render "shared/top_links" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="top-bar">
+    
+      <div class="line-break"></div>
+
+      <%= link_to root_path, class: 'show-for-small-only logo-safe-zone float-left', accesskey: "0" do %>
+        <%= image_tag(image_path_for('logo_header.png'), class: 'logo-header', alt: t("layouts.header.logo")) %>
+      <% end %>
+      
+      <div align="right">
+        <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+          <span class="menu-icon dark" data-toggle></span>
+          <%= t("application.menu")%>&nbsp;&nbsp;
+        </span>
+      </div>
+
+      <div id="responsive-menu">
+        <div class="hide-for-small-only top-bar-title">
+          <%= link_to root_path, class: 'logo-safe-zone', accesskey: "0" do %>
+            <%= image_tag(image_path_for('logo_header.png'), class: 'logo-header', alt: t("layouts.header.logo")) %>
+          <% end %>
+        </div>
+        
+        <div class="top-bar-right">
+          <ul class="hide-for-small-only menu" style="float:right">
+            <%= render "shared/admin_login_items" %>
+            <%= render "devise/menu/login_items" %>
+          </ul>
+
+          <div class="show-for-small-only">
+            <nav class="subnavigation">
+              <ul class="subnav-main">
+                <%= render "shared/subnavigation_light" %>
+                <%= render "devise/menu/login_items" %>
+                <%= render "shared/admin_login_items" %>
+                <%= render "shared/top_links_light" %>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subnavigation expanded">
+    <div class="row">
+      <div class="hide-for-small-only">
+        <%= render "shared/subnavigation" %>
+      </div>
+      
+      <div class="small-12 medium-3 column">
+        <%= yield :header_addon %>
+      </div>
+    </div>
+  </div>
+</header>

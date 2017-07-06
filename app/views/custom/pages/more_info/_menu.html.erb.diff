@@ -1,0 +1,26 @@
+5,7c5,7
+<       <li>
+<         <%= link_to t("pages.more_info.menu.debates"), "#debates", class: "button hollow expanded" %>
+<       </li>
+---
+>         <li>
+>           <%= link_to t("pages.more_info.menu.debates"), "#debates", class: "button hollow expanded" %>
+>         </li>
+8a9
+>       
+12c13
+<       <% if feature?(:budgets) %>
+---
+>       
+14c15
+<         <%= link_to t("pages.more_info.menu.budgets"), "#budgets", class: "button hollow expanded" %>
+---
+>         <%= link_to t("pages.more_info.menu.votes"), "#polls", class: "button hollow expanded" %>
+16c17,21
+<       <% end %>
+---
+>       
+>       <li class="show-for-small-only">
+>         <%= link_to t("pages.more_info.menu.faq"), "#faq", class: "button hollow expanded" %>
+>       </li>
+>       

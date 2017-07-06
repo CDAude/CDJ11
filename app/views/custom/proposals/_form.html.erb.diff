@@ -1,0 +1,51 @@
+15,21c15,16
+<       <p class="help-text" id="question-help-text">
+<         <%= t("proposals.form.proposal_question_example_html") %>
+<       </p>
+<       <%= f.text_field :question, maxlength: Proposal.question_max_length,
+<                                   placeholder: t("proposals.form.proposal_question"),
+<                                   label: false,
+<                                   aria: {describedby: "question-help-text"} %>
+---
+>       <p class="note" style="display:inline;background:yellow;"><%= t("proposals.form.proposal_question_note") %></p>
+>       <%= f.text_field :question, maxlength: Proposal.question_max_length, placeholder: t("proposals.form.proposal_question"), label: false %>
+26c21
+<       <p class="help-text" id="summary-help-text"><%= t("proposals.form.proposal_summary_note") %></p>
+---
+>       <p class="note" style="display:inline;"><%= t("proposals.form.proposal_summary_note") %></p>
+28,29c23
+<                       placeholder: t('proposals.form.proposal_summary'),
+<                       aria: {describedby: "summary-help-text"} %>
+---
+>                       placeholder: t('proposals.form.proposal_summary') %>
+40,42c34,35
+<       <p class="help-text" id="video-url-help-text"><%= t("proposals.form.proposal_video_url_note") %></p>
+<       <%= f.text_field :video_url, placeholder: t("proposals.form.proposal_video_url"), label: false,
+<                                    aria: {describedby: "video-url-help-text"} %>
+---
+>       <p class="note" style="display:inline;"><%= t("proposals.form.proposal_video_url_note") %></p>
+>       <%= f.text_field :video_url, placeholder: t("proposals.form.proposal_video_url"), label: false %>
+56,58d48
+<       <%= f.label :tag_list, t("proposals.form.tags_label") %>
+<       <p class="help-text" id="tag-list-help-text"><%= t("proposals.form.tags_instructions") %></p>
+< 
+65,66c55
+< 
+<       <br>
+---
+>       
+70,71c59
+<                         class: 'js-tag-list',
+<                         aria: {describedby: "tag-list-help-text"} %>
+---
+>                         class: 'js-tag-list' %>
+77,79c65,66
+<         <p class="help-text" id="responsible-name-help-text"><%= t("proposals.form.proposal_responsible_name_note") %></p>
+<         <%= f.text_field :responsible_name, placeholder: t("proposals.form.proposal_responsible_name"), label: false,
+<                                             aria: {describedby: "responsible-name-help-text"} %>
+---
+>         <p class="note"><%= t("proposals.form.proposal_responsible_name_note") %></p>
+>         <%= f.text_field :responsible_name, placeholder: t("proposals.form.proposal_responsible_name"), label: false %>
+81a69,70
+>     
+>     <div id="line-break" class="small-12 column"><br></div>

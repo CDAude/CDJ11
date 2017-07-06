@@ -1,0 +1,16 @@
+<div class="debate-form row">
+
+  <div class="small-12 medium-9 column">
+    <%= render "shared/back_link" %>
+
+    <h1><%= t("debates.new.start_new") %></h1>
+    <%= render "form" %>
+  </div>
+
+  <div class="small-12 medium-3 column">
+    <span class="icon-debates float-right"></span>
+    <h3>
+      <%= t("debates.new.recommendation_title", chart_link: link_to(t("debates.new.recommendation_chart"), t("debates.new.recommendation_url"), target: "blank")).html_safe %>
+    </h3>
+  </div>
+</div>

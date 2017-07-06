@@ -1,0 +1,22 @@
+11a12,13
+>   
+>   has_orders %w{created_at}, only: :index
+21c23,27
+<     @spending_proposal = SpendingProposal.new
+---
+>     if user_signed_in? && (current_user.administrator? || current_user.poll_officer?)
+>       @spending_proposal = SpendingProposal.new
+>     else
+>       redirect_to "/"
+>     end
+66c72,77
+<       target = params[:unfeasible].present? ? target.unfeasible : target.not_unfeasible
+---
+>       target = target.all.sort_by_created_at
+>       if params[:association_name].present?
+>         target = target.by_association_name(params[:association_name])
+>         @association_name = params[:association_name]
+>       end
+>       
+74d84
+< 

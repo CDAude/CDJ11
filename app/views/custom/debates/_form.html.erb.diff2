@@ -1,0 +1,9 @@
+20c20
+<       <p class="note"><%= t("debates.form.tags_instructions") %></p>
+---
+>       <p class="help-text" id="tag-list-help-text"><%= t("debates.form.tags_instructions") %></p>
+24c24,25
+<                         placeholder: t("debates.form.tags_placeholder") %>
+---
+>                         placeholder: t("debates.form.tags_placeholder"),
+>                         aria: {describedby: "tag-list-help-text"} %>

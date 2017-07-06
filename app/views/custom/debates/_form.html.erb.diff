@@ -1,0 +1,12 @@
+8c8
+<       <%= f.text_field :title, maxlength: Debate.title_max_length, placeholder: t("debates.form.debate_title"), label: false, data: {js_suggest_result: "js_suggest_result", js_suggest: "#js-suggest", js_url: suggest_debates_path}%>
+---
+>       <%= f.text_field :title, maxlength: Debate.title_max_length, placeholder: t("debates.form.debate_title_holder"), label: false, data: {js_suggest_result: "js_suggest_result", js_suggest: "#js-suggest", js_url: suggest_debates_path}%>
+20,21d19
+<       <p class="help-text" id="tag-list-help-text"><%= t("debates.form.tags_instructions") %></p>
+< 
+24,25c22
+<                         placeholder: t("debates.form.tags_placeholder"),
+<                         aria: {describedby: "tag-list-help-text"} %>
+---
+>                         placeholder: t("debates.form.tags_placeholder") %>

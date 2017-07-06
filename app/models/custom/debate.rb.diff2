@@ -1,0 +1,21 @@
+9a10,11
+>   include HasPublicAuthor
+>   include Graphqlable
+39a42
+>   scope :public_for_api,           -> { all }
+55c58
+<     self.pg_search(terms)
+---
+>     pg_search(terms)
+124c127
+<     self.tags.each{ |t| t.decrement_custom_counter_for('Debate') }
+---
+>     tags.each{ |t| t.decrement_custom_counter_for('Debate') }
+128c131
+<     self.tags.each{ |t| t.increment_custom_counter_for('Debate') }
+---
+>     tags.each{ |t| t.increment_custom_counter_for('Debate') }
+132c135
+<     self.featured_at.present?
+---
+>     featured_at.present?

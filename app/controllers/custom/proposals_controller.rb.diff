@@ -1,0 +1,36 @@
+4a5,6
+>   before_action :parse_search_terms, only: [:index, :suggest]
+>   before_action :parse_advanced_search_terms, only: :index
+6c8,9
+<   before_action :load_categories, only: [:index, :new, :create, :edit, :map, :summary]
+---
+>   before_action :set_search_order, only: :index
+>   before_action :load_categories, only: [:index, :new, :edit, :map, :summary]
+12c15
+<   has_orders %w{hot_score confidence_score created_at relevance archival_date}, only: :index
+---
+>   has_orders %w{created_at confidence_score most_commented relevance archival_date}, only: :index
+25,34d27
+<   def create
+<     @proposal = Proposal.new(proposal_params.merge(author: current_user))
+< 
+<     if @proposal.save
+<       redirect_to share_proposal_path(@proposal), notice: I18n.t('flash.actions.create.proposal')
+<     else
+<       render :new
+<     end
+<   end
+< 
+58,63d50
+<   def share
+<     if Setting['proposal_improvement_path'].present?
+<       @proposal_improvement_path = Setting['proposal_improvement_path']
+<     end
+<   end
+< 
+112c99
+<       @featured_proposals = Proposal.not_archived.sort_by_confidence_score.limit(3) if (!@advanced_search_terms && @search_terms.blank? && @tag_filter.blank? && params[:retired].blank?)
+---
+>       @featured_proposals = Proposal.not_archived.last_week.sort_by_created_at.limit(3) if (!@advanced_search_terms && @search_terms.blank? && @tag_filter.blank? && params[:retired].blank?)
+121a109
+> 

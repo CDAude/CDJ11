@@ -1,0 +1,33 @@
+8c8,9
+<                                 accesskey: "1" %>
+---
+>                                 accesskey: "1",
+>                                 title: t("shared.go_to_page") + t("layouts.header.debates") %>
+15c16,17
+<                                 accesskey: "2" %>
+---
+>                                 accesskey: "2",
+>                                 title: t("shared.go_to_page") + t("layouts.header.proposals") %>
+22c24,33
+<                                   accesskey: "3" %>
+---
+>                                   accesskey: "3",
+>                                   title: t("shared.go_to_page") + t("layouts.header.poll_questions") %>
+>       </li>
+>     <% end %>
+>     <% if feature?(:legislation) %>
+>       <li>
+>         <%= layout_menu_link_to t("layouts.header.collaborative_legislation"),
+>                                 legislation_processes_path,
+>                                 controller.class.parent == Legislation,
+>                                 accesskey: "l" %>
+38c49,50
+<                                   accesskey: "4" %>
+---
+>                                   accesskey: "4",
+>                                   title: t("shared.go_to_page") + t("layouts.header.budgets") %>
+45c57,58
+<                     class: ("active" if current_page?(more_info_path)) %>
+---
+>                     class: ("active" if current_page?(more_info_path)),
+>                     title: t("shared.go_to_page") + t("layouts.header.more_info") %>

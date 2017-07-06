@@ -1,0 +1,14 @@
+0a1
+> <div class="sidebar-divider"></div>
+2d2
+<   <div class="sidebar-divider"></div>
+5c5
+<   <ul class="no-bullet tag-cloud">
+---
+>   <ul class="no-bullet tag-cloud tags">
+8,10c8
+<         <%= link_to taggables_path(taggable, tag.name) do %>
+<           <span class="tag"><%= tag.name %></span>
+<         <% end %>
+---
+>         <%= link_to tag.name, taggables_path(taggable, tag.name), class: taggable %>

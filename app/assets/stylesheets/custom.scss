@@ -3,3 +3,421 @@
 // * English: https://github.com/consul/consul/blob/master/CUSTOMIZE_EN.md#css
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
+
+//from admin.scss
+$dark-admin: darken($admin-color, 15%);
+body.admin {
+  header {
+    .top-links {
+      background: $dark-admin;
+    }
+  }
+}
+
+//from layout.scss
+.tags a, .tag-cloud a, .categories a, .geozone a, .sidebar-links a, .tags span {
+  color: $light;
+  transition: background-color 0.25s;
+  
+  &.debate {
+    background: $debates;
+  }
+  
+  &.proposal {
+    background: $proposals;
+  }
+  
+  &.actu {
+    background: $budget;
+  }
+  
+  &:hover {
+    background: $tag-hover;
+  }
+}
+.auth-image {
+  background: $brand;
+  h1 {
+    img {
+      height: rem-calc(15);
+      width: rem-calc(15);
+      padding: rem-calc(3);
+      background: white;
+      text-align: center;
+      border-radius: 50%;
+      margin-bottom: rem-calc(5);
+    }
+
+    a {
+      line-height: rem-calc(25);
+    }
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+
+//from mixins.scss
+//.logo {
+.top-bar {
+  .top-bar-title a {
+  img {
+    height: 50px;
+    width: 50px;
+
+    @include breakpoint(medium) {
+      height: 100px;
+      margin: 0;
+      width: 100px;
+    }
+  }
+ }
+}
+
+//from participation.scss
+.progress {
+  background: $proposals-jauge;
+  border: 1px solid $proposals-jauge;
+}
+.button-support {
+  background: $proposals;
+  color: $light;
+}
+
+.debate, .proposal, .investment-project, .budget-investment {
+    .label-proposal {
+      color: $proposals;
+    }
+    .icon-proposals {
+      color: $proposals;
+    }
+    .debate-description, .proposal-description, .investment-project-description, .budget-investment-description {
+      max-height: rem-calc(123);
+    }
+}
+.featured-debates {
+  background: lighten($debates,20%);
+}
+
+.featured-proposals {
+  background: lighten($proposals,20%);
+  .supports {
+    .button-support {
+      background: darken($proposals,5%);
+      color: $light;
+    }
+   }
+}
+.dark-heading {
+  background: #c94818;
+}
+
+//Dev by AB
+/* Logo page de connexion */
+.logo-header:hover {
+  transition: all 0.5s;
+  -webkit-filter: contrast(150%);
+  -moz-filter: contrast(150%);
+  -o-filter: contrast(150%);
+  -ms-filter: contrast(150%);
+  filter: contrast(150%);
+}
+
+.logo-header:active {
+  -webkit-filter: sepia(100%);
+  -moz-filter: sepia(100%);
+  -o-filter: sepia(100%);
+  -ms-filter: sepia(100%);
+  filter: sepia(100%);
+}
+
+.auth-image {
+  h1 {
+    img {
+      width: rem-calc(200);
+      height: auto;
+      margin: 0;
+    }
+  }
+}
+
+.show-for-small-only {
+  text-align: center;
+  
+  img {
+    width: rem-calc(100);
+    margin: rem-calc(20);
+  }
+}
+
+@media screen and (max-width: 639px) {
+  .logo-header:hover { transition:none }
+  
+  .auth-image {
+    text-align: center;
+    h1 {
+      margin: 0;
+      img { width:rem-calc(100) }
+    }
+  }
+}
+
+.icon-debates:before { content:"\68" }
+.icon-proposals:before { content:"\6d" }
+
+.coords {
+  display: block;
+  overflow: auto;
+  width: 300px;
+}
+
+.top-bar-right {
+  .subnavigation {
+    ul {
+      padding-right: 0;
+      text-align: center;
+      
+      li {
+        position: relative;
+        text-align: center;
+        display: inline-block;
+        width: 130px;
+        height: 130px;
+        margin: calc((100% - 130px) / 8) calc((100% - 130px) / 2);
+        
+        float: left;
+        box-shadow: 0px 1px 3px #444444;
+        
+        @media screen and (min-width: 320px) and (max-width: 479px) { margin: calc((100% - 260px) / 4); }
+        @media screen and (min-width: 480px) and (max-width: 639px) { margin: calc((100% - 390px) / 6); }
+        @media screen and (min-width: 640px) { margin: calc((100% - 520px) / 8); }
+        
+        a {
+          position:absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          text-align: center;
+          line-height: normal;
+          padding: .5em;
+          
+          img {
+            margin: 0;
+            height: calc(130px - 2em);
+            width: auto;
+          }
+          
+          .new-notif {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: yellow;
+            top: -15px;
+            right:-15px; 
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    
+    ul.subnav-main li { background-color: $dark; }
+    ul.subnav-admin li { background-color: $dark-admin; }
+  }
+}
+
+.top-bar {
+  ul {
+    &.menu {
+    
+      @include breakpoint(medium) {
+        margin-top: rem-calc(15);
+        margin-bottom: rem-calc(30);
+      }
+    }
+
+    &.menu > li {
+      display: block;
+
+      @include breakpoint(medium) {
+        display: table-cell;
+        height: auto;
+      }
+      
+      &.not-logged a {
+      
+        @include breakpoint(medium) {
+          font-size: $lead-font-size;
+          padding: rem-calc(20) rem-calc(20);
+        }
+      }
+
+      a {
+        color: white;
+        padding-left: 0;
+        
+        &:active {
+        
+          @include breakpoint(medium) {
+            color: #bbbbbb;
+          }
+        }
+
+        &.button {
+          text-align: left;
+
+          @include breakpoint(medium) {
+            text-align: center;
+            background: white;
+            color: $brand;
+          }
+          
+          &:hover {
+        
+            @include breakpoint(medium) {
+              background: #dddddd;
+            }
+          }
+          
+          &:active {
+        
+            @include breakpoint(medium) {
+              background: #bbbbbb;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+a {
+  &:focus {
+    color: $link-hover;
+    outline: none;
+  }
+}
+
+.investment-project-show {
+  .investment-project-header {
+    margin-bottom: rem-calc(25);
+    
+    p {
+      font-size: 1.25em;
+    }
+  }
+  
+  .investment-project-image {
+    margin-bottom: rem-calc(50);
+    text-align: center;
+    
+    article {
+      background: #eeeeee;
+      display: inline-block;
+      border: 1px solid;
+      border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+      padding: rem-calc(12);
+      box-shadow: 0px 1px 3px 0 $border;
+      
+      img {
+        max-width: 100%;
+        max-height: rem-calc(300);
+      }
+    }
+  }
+  
+  .investment-project-description {
+    margin-bottom: rem-calc(50);
+    
+    .tag {
+      display: inline-block;
+      padding: rem-calc(6) rem-calc(10);
+      color: $light;
+      border-radius: rem-calc(6);
+      line-height: inherit;
+    }
+  }
+  
+  .investment-project-info {
+    font-size: rem-calc(16);
+    display: inline-block;
+    
+    .tags, .geozone {
+      display: inline-block;
+    }
+    
+    .tags a {
+      color: $light;
+    }
+    
+    .geozone a {
+      color: $budget;
+      
+      &:hover {
+        color: $light;
+      }
+    }
+  }
+}
+
+.investment-project {
+  .panel {
+    .investment-project-description {
+      p {
+        margin-top: rem-calc(10);
+        display: inline-block;
+      }
+    }
+    
+    .investment-project-image {
+      margin-bottom: rem-calc(12);
+      text-align: center;
+      
+      a {
+        background: #eeeeee;
+        display: inline-block;
+        border: 1px solid;
+        border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+        padding: rem-calc(12);
+        box-shadow: 0px 1px 3px 0 $border;
+        
+        &:hover, &:active {
+          background: #cccccc;
+        }
+        
+        img {
+          max-width: 100%;
+          max-height: rem-calc(300);
+        }
+      }
+    }
+  }
+}
+
+.line-break {
+  height: rem-calc(8);
+}
+
+.logo-safe-zone {
+  padding: rem-calc(3);
+  background: white;
+  text-align: center;
+  border-radius: 50%;
+  margin-bottom: rem-calc(5);
+  @include breakpoint(medium) {
+    margin-bottom: rem-calc(25);
+  }
+  
+  img {
+    margin: 0;
+  }
+}

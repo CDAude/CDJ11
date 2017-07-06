@@ -1,0 +1,3 @@
+19a20,21
+>       <%= l proposal.created_at.to_date %>&nbsp;&bull;&nbsp;
+> 
